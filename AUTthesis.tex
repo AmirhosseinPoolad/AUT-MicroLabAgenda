@@ -1,0 +1,89 @@
+%%%  کلاس AUTthesis، نسخه آبان 1397
+%%%   دانشگاه صنعتی امیرکبیر                 http://www.aut.ac.ir
+%%%  تالار گفتگوی پارسی‌لاتک،       http://forum.parsilatex.com
+%%%   آپدیت شده در آبان 95
+%%%   پشتیبانی و راهنمایی          badali_farhad@yahoo.com
+%%%
+%%%   بازبینی و اصلاح شده در آبان ماه 1397
+%%%  Tested via TeXstudio in TeXlive 2014-2018.
+%%%
+
+%-----------------------------------------------------------------------------------------------------
+%        روش اجرا.: 2 بار F1 ، 2 بار  F11(به منظور تولید مراجع) ، دوبار Ctrl+Alt+I (به منظور تولید نمایه) و دو بار F1 -------> مشاهده Pdf
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   TeXstudio as your IDE
+%%  برای compile در TeXstudio تنها کافی است منوی Options->Configure TeXstudio را زده و در پنجره Configure TeXstudio در بخش Build گزینه Default Compiler را به XeLaTeX تغییر دهید. سند شما به راحتی compile خواهد شد.
+%   F1 & F5 : Build & view
+%   F6      : Compile
+%   F7      : View
+%   --------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%        اگر قصد نوشتن رساله دکتری را دارید، در خط زیر به جای msc،
+%      کلمه phd را قرار دهید. کلیه تنظیمات لازم، به طور خودکار، اعمال می‌شود.
+%%% !TEX TS-program = XeLaTeX
+
+\documentclass[oneside,bsc,12pt]{AUTthesis}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{minted}
+\definecolor{mGreen}{rgb}{0,0.6,0}
+\definecolor{mGray}{rgb}{0.5,0.5,0.5}
+\definecolor{mPurple}{rgb}{0.58,0,0.82}
+\definecolor{backgroundColour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{CStyle}{
+    backgroundcolor=\color{backgroundColour},   
+    commentstyle=\color{mGreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{mGray},
+    stringstyle=\color{mPurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    language=C
+}
+
+%       فایل commands.tex را حتماً به دقت مطالعه کنید؛ چون دستورات مربوط به فراخوانی بسته زی‌پرشین 
+%       و دیگر بسته‌ها و ... در این فایل قرار دارد و بهتر است که با نحوه استفاده از آنها آشنا شوید. توجه شود برای نسخه نهایی پایان‌نامه حتماً hyperref را 
+%        غیرفعال کنید.
+
+
+\input{commands}
+
+\begin{document}
+\baselineskip=.75cm
+\linespread{1.75}
+\input{fa_title}
+% دستور زیر برای شماره گذاری صفحات قبل از فصل اول با حروف ابجد است.
+\pagenumbering{alph}
+%-----------------------------------------------------------------------------
+% فایل زیر دستورات مربوط به نمایش صفحات فهرست مطالب- فهرست اشکال و جداول است.
+\input{TOC-TOF-LOT}
+% در صورت تمایل می‌توانید با فعال کردن دستور بالا، لیست تصاویر را به  پایان‌نامه خود اضافه کنید.
+%-------------------------------------------------------------------------symbols(فهرست نمادها)
+% وجود لیست نمادها الزامیست.(لطفاً نمادهای خود را جایگذین نمادهای پیش‌فرض کنید.)
+%\input{list-of-symbols}
+
+\pagenumbering{arabic}
+\pagestyle{style1}
+%--------------------------------------------------------------------------chapters(فصل ها)
+\include{chapter1}
+\include{lab1.tex}
+\include{lab2.tex}
+\include{lab-spi-ledmat}
+%\include{lab3.tex} %SPI lab. Find a good peripheral for a good experiment
+\include{lab4.tex}
+\include{lab5.tex}
+\include{lab6.tex}
+\include{lab7.tex}
+\include{lab8.tex}
+\include{lab9.tex}
+\end{document}
